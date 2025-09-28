@@ -1,12 +1,22 @@
-# Predicting the Risk of Default on Home Credit
+# **Predicting the Risk of Default on Home Credit**
+
+A Data Science Approach to Supporting Credit Granting Decisions
 
 ## 📋 Project Overview
 
 This project aims to predict loan default risk using the Home Credit Default Risk dataset, which contains comprehensive customer information, credit history, and payment records. The analysis involves in-depth data exploration, cleaning, and feature engineering from multiple data sources to build machine learning and deep learning models that can assist financial institutions in assessing creditworthiness more accurately.
 
-## 🎯 Business Objective
+## 🎯 Business Problem
 
-To develop a predictive model that can identify potential loan defaulters, enabling Home Credit to make better-informed credit granting decisions and reduce financial risks.
+How can we accurately predict the probability of loan default using applicant information and historical credit data?
+
+## 🎯 Business Objectives
+
+1. Identify potential borrowers at risk of default early.
+
+2. Improve prediction accuracy to minimize risk.
+
+3. Provide practical recommendations to support business decision-making.
 
 ## 📊 Dataset Description
 
@@ -79,18 +89,53 @@ Key insights uncovered:
 ## 📈 Model Performance
 
 ### Evaluation Metrics
-- **AUC-ROC** (Primary metric)
-- **Accuracy**
-- **Precision**
-- **Recall** 
-- **F1-Score**
+
+* **AUC-ROC** (Primary metric)
+* **Accuracy**
+* **Precision**
+* **Recall**
+* **F1-Score**
 
 ### Performance Comparison
+
 All models are comprehensively evaluated and compared using:
-- ROC curve analysis
-- Confusion matrices
-- Training history visualization
-- Feature importance analysis
+
+* ROC curve analysis
+* Confusion matrices
+* Training history visualization
+* Feature importance analysis
+
+### 🔢 Detailed Results
+
+| Model         | AUC    | Accuracy | Precision | Recall | F1-Score |
+| ------------- | ------ | -------- | --------- | ------ | -------- |
+| Random Forest | 0.7359 | 0.7276   | 0.1687    | 0.6048 | 0.2639   |
+| LightGBM      | 0.7628 | 0.7554   | 0.1893    | 0.6183 | 0.2898   |
+| Simple NN     | 0.7479 | 0.6951   | 0.1636    | 0.6753 | 0.2634   |
+| Deep NN       | 0.7507 | 0.7235   | 0.1727    | 0.6397 | 0.2720   |
+
+### 📊 Model Ranking (by AUC)
+
+1. **LightGBM** – AUC = 0.7628, Accuracy = 0.7554, F1 = 0.2898
+2. Deep Neural Network – AUC = 0.7507, Accuracy = 0.7235, F1 = 0.2720
+3. Simple Neural Network – AUC = 0.7479, Accuracy = 0.6951, F1 = 0.2634
+4. Random Forest – AUC = 0.7359, Accuracy = 0.7276, F1 = 0.2639
+
+### 🏆 Best Performing Model: LightGBM
+
+* **AUC**: 0.7628
+* **Accuracy**: 0.7554
+* **F1-Score**: 0.2898
+* **Advantage**: Outperformed Deep NN (2nd place) by **0.0121 AUC**
+
+### 📌 Overall Performance Range
+
+* **AUC**: 0.7359 – 0.7628
+* **Accuracy**: 0.6951 – 0.7554
+* **F1-Score**: 0.2634 – 0.2898
+
+✅ LightGBM consistently outperformed other models, proving to be the most reliable for this credit default prediction task.
+
 
 ## 🚀 Key Features
 
@@ -107,29 +152,29 @@ All models are comprehensively evaluated and compared using:
 
 ## 📁 Project Structure
 home-credit-default-risk/
+
 ├── data/
+
 │ ├── application_train.csv
+
 │ ├── application_test.csv
+
 │ └── ... (other dataset files)
-├── notebooks/
-│ └── home_credit_analysis.ipynb
-├── models/
-│ ├── random_forest_model.pkl
-│ ├── lightgbm_model.pkl
-│ └── neural_networks/
+
+├── pitch deck/
+
+│ ├── pitch_deck.pdf
+
 ├── submissions/
+
 │ ├── home_credit_submission.csv
+
 │ └── home_credit_ensemble_submission.csv
+
+└── notebook.ipynb
+
 └── README.md
 
-
-## 🏆 Results
-
-The project delivers:
-1. **Multiple trained models** with performance comparisons
-2. **Feature importance analysis** for business interpretation
-3. **Test predictions** ready for competition submission
-4. **Comprehensive documentation** of methodology and insights
 
 ## 🔧 Requirements
 
@@ -137,24 +182,41 @@ The project delivers:
 pip install pandas numpy matplotlib seaborn scikit-learn lightgbm tensorflow torch
 ```
 
-🎮 Usage
-Data Preparation: Place dataset files in the data/ directory
+## 🏆 Results
 
-Model Training: Run the analysis notebook to train all models
+The project delivers:
 
-Predictions: Use trained models to generate predictions on new data
+1. Multiple trained models with performance comparisons
+2. Feature importance analysis for business interpretation
+3. Test predictions ready for competition submission
+4. Comprehensive documentation of methodology and insights
 
-Evaluation: Analyze model performance using provided visualizations
+## 📊 Key Insights & Business Recommendations
+### 🔑 Key Findings
+- **Default Rate:** Overall dataset default rate = 8.07%
+- **High-Risk Segments:**
+   - **Income type "Maternity leave":** 40% default rate
+   - **Age group 0–25 years:** 12.29% default rate
+- **Most Important Features:** EXT_SOURCE_3 (-0.156), EXT_SOURCE_2 (-0.160), EXT_SOURCE_1 (-0.099)
+- **Best Model:** LightGBM achieved AUC = 0.7628, outperforming Deep NN (0.7507)
 
-📝 Key Findings
-Most Predictive Features: EXT_SOURCE variables, credit history, and income ratios
+## 💼 Business Recommendations
+1. **Enhance External Data Usage:** Improve quality and frequency of EXT_SOURCE updates for better credit scoring.
+2. **Segment-Based Credit Policy:** Apply stricter rules or adjusted products (e.g., higher interest, lower limits) for high-risk groups.
+3. **Automated Decision System:** Deploy LightGBM as the primary risk scoring engine, while fine-tuning thresholds to balance Precision vs. Recall.
 
-Best Performing Model: LightGBM consistently shows strong performance
+## ⚙️ Solution Highlights
+- **Model:** LightGBM classifier with engineered features & ensemble option
+- **Pipeline:** Integrated credit history, application data, and payment records
+- **Deployment:** Produces default probability for new applications, ready for business integration
 
-Business Insights: Clear patterns in default rates across demographic segments
+## 📌 Conclusion & Next Steps
+- **LightGBM** proved to be the best-performing model for this problem (AUC 0.7628).
+- **EXT_SOURCE features** remain the most critical predictors.
+- **Next steps:** Tune LightGBM further and explore ensemble methods to maximize AUC and balance Precision–Recall tradeoffs.
 
-👥 Contributors
-Data science project focused on credit risk prediction using advanced machine learning and deep learning techniques.
 
-📄 License
-This project is for educational and competition purposes using the Home Credit Default Risk dataset.
+## 👥 Contributors
+
+Defrizal Yahdiyan Risyad 
+
