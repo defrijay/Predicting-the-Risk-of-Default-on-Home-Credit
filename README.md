@@ -1,8 +1,11 @@
 # **Predicting the Risk of Default on Home Credit**
 
+![Cover Project](./cover.png)
+
 A Data Science Approach to Supporting Credit Granting Decisions
 
 ## 📋 Project Overview
+
 
 This project aims to predict loan default risk using the Home Credit Default Risk dataset, which contains comprehensive customer information, credit history, and payment records. The analysis involves in-depth data exploration, cleaning, and feature engineering from multiple data sources to build machine learning and deep learning models that can assist financial institutions in assessing creditworthiness more accurately.
 
